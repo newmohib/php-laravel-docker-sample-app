@@ -35,3 +35,15 @@
 - docker container rm -f $( docker container ls -aq )
 - Remove all image
 - docker image rm -f $(docker image ls -q)
+
+
+#### Docs
+
+- [dockerize-your-php-laravel-app-apache](https://medium.com/@aprilrieger/effortlessly-dockerize-your-php-laravel-app-a-step-by-step-guide-c1a6ffcc2b74)
+
+- [dockerize-your-php-laravel-app-nginx](https://medium.com/@manuedavakandam/mastering-laravel-containerization-with-php-and-nginx-a-docker-a-docker-journey-d86ac9eed357)
+
+
+
+udo docker build -t my-laravel-app .
+docker run -d -p 8000:9000 --name my-laravel-container -e DB_DATABASE=testdb my-laravel-app
