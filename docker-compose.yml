@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
     web:
-        image: app-name:latest
+        image: custom_laravel:latest
         build:
             target: web
             context: .
@@ -32,3 +32,6 @@ services:
 
 volumes:
     dbdata:
+# volumes:
+#   dbdata:
+#     driver: local

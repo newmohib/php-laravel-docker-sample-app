@@ -1,6 +1,8 @@
 ### Build and Run with Docker
-
 -   docker compose build & docker compose up -d
+
+### Run the Laravel applicaiton with MySQL DB contianer
+- chmod +x script.sh && ./script.sh
 
 ## Install Dependencies
 
@@ -27,3 +29,9 @@
 -   php artisan serve
 
 -   Now, you can visit http://localhost:8000/ in your browser.
+
+#### Remove all container and image
+- Remove all container
+- docker container rm -f $( docker container ls -aq )
+- Remove all image
+- docker image rm -f $(docker image ls -q)
