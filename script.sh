@@ -1,8 +1,8 @@
 #!/bin/bash
 
-IMAGE_NAME="custom_laravel"  # Name for the custom Docker image
+IMAGE_NAME="custom_laravel_nginx"  # Name for the custom Docker image
 BACKUP_IMAGE_NAME="${IMAGE_NAME}_backup_$(date +%Y%m%d%H%M%S)"  # Backup image name with timestamp
-CONTAINER_NAME="laravel_container"  # Name for the running Laravel container
+CONTAINER_NAME="laravel_container_nginx_$(date +%Y%m%d%H%M%S)"  # Name for the running Laravel container
 
 # Function to stop and remove the Docker container if it exists
 function stop_and_remove_container() {
