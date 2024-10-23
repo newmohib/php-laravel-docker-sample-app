@@ -1,5 +1,5 @@
 # Use Bitnami PHP-FPM image
-FROM bitnami/php-fpm:8.2
+FROM bitnami/php-fpm:8.2 AS app
 
 # Install Nginx and other dependencies
 RUN install_packages nginx
