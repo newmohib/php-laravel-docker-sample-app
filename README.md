@@ -37,6 +37,9 @@
 - docker image rm -f $(docker image ls -q)
 
 
+## geting error for alpine like // exec /start.sh: no such file or directory
+## bash sh file can not run with alpine
+
 #### Docs
 
 - [dockerize-your-php-laravel-app-apache](https://medium.com/@aprilrieger/effortlessly-dockerize-your-php-laravel-app-a-step-by-step-guide-c1a6ffcc2b74)

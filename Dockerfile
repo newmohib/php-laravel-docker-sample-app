@@ -10,23 +10,20 @@ WORKDIR /var/www/html
 # Copy Laravel app files to the container
 COPY . /var/www/html
 
-
-
-# Set permissions
-# RUN chmod 755 /start.sh
-RUN chown -R root:root /var/www/html/storage /var/www/html/bootstrap/cache \
-    && chmod -R 775 /var/www/html/storage
-
-RUN chown -R root:root /var/www/html
-# RUN chmod -R 777 /var/www/html/storage
-RUN chmod -R 775 /var/www/html/storage/framework/sessions/*
+# Set secure permissions
+# Using www-data as the user/group for PHP-FPM and Nginx (default web user)
+RUN chown -R www-data:www-data /var/www/html \
+    && chmod -R 755 /var/www/html \
+    && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
 # Install Composer dependencies
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-RUN composer install --no-dev --optimize-autoloader
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
+    && composer install --no-dev --optimize-autoloader \
+    && chown -R www-data:www-data /var/www/html/vendor
 
 # Nginx configuration
 COPY ./nginx.conf /etc/nginx/nginx.conf
+
 
 # Expose Nginx's HTTP port
 EXPOSE 80
@@ -41,14 +38,11 @@ CMD ["sh", "-c", "php-fpm -D && nginx -g 'daemon off;'"]
 # # Fix potential line ending issues
 # # RUN dos2unix /start.sh
 
-# RUN chmod +x /start.sh
-# RUN chmod 755 /start.sh
+# RUN chmod +x start.sh
+# # RUN chmod 755 /start.sh
 
 # # Start Nginx and PHP-FPM together using a custom entrypoint script
+# geting error for alpine like // exec /start.sh: no such file or directory
+# bash sh file can not run with alpine
 # ENTRYPOINT ["/start.sh"]
-
-# Start PHP-FPM
-# RUN php-fpm &
-# # Start Nginx
-# RUN nginx -g "daemon off;"
 

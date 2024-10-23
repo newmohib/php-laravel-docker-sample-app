@@ -4,6 +4,10 @@ IMAGE_NAME="custom_laravel_nginx"  # Name for the custom Docker image
 BACKUP_IMAGE_NAME="${IMAGE_NAME}_backup_$(date +%Y%m%d%H%M%S)"  # Backup image name with timestamp
 CONTAINER_NAME="laravel_container_nginx"  # Name for the running Laravel container
 
+# Execute permissions on the start script
+
+chmod +x start.sh
+
 # Function to stop and remove the Docker container if it exists
 function stop_and_remove_container() {
     if docker ps -a --format '{{.Names}}' | grep -Eq "^${CONTAINER_NAME}\$"; then
