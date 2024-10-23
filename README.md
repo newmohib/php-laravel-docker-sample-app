@@ -45,5 +45,6 @@
 
 
 
-udo docker build -t my-laravel-app .
-docker run -d -p 8000:9000 --name my-laravel-container -e DB_DATABASE=testdb my-laravel-app
+- udo docker build -t my-laravel-app .
+- docker run -d -p 8000:9000 --name my-laravel-container -e DB_DATABASE=testdb my-laravel-app
+- /var/log/nginx/error.log or /var/log/php-fpm/error.log
