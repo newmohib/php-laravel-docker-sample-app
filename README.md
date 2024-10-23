@@ -4,49 +4,59 @@
 ### Run the Laravel applicaiton with MySQL DB contianer
 - chmod +x script.sh && ./script.sh
 
-## Install Dependencies
+## Start Laravel New project follow the all steps
 
--   sudo apt-get update && sudo apt-get upgrade
--   sudo apt-get install software-properties-common
--   sudo add-apt-repository ppa:ondrej/php
--   sudo apt-get update
--   sudo apt-get install php8.2
+#### 1: Install Dependencies
 
-### install for laravel
+-  sudo apt-get update && sudo apt-get upgrade
+-  sudo apt-get install software-properties-common
+-  sudo add-apt-repository ppa:ondrej/php
+-  sudo apt-get update
+-  sudo apt-get install php8.2
 
--   suto apt-get install docker
--   suto apt-get install composer
--   suto apt-get install php@8.2
--   composer global require laravel/installer
+#### 2: install for laravel
 
-#### Create Your New PHP Laravel Project
+-  suto apt-get install docker
+-  suto apt-get install composer
+-  suto apt-get install php@8.2
+-  composer global require laravel/installer
 
--   composer create-project --prefer-dist laravel/laravel laravel-app
+#### 3: Create Your New PHP Laravel Project
 
-#### Start the Apache Server
+-  composer create-project --prefer-dist laravel/laravel laravel-app
 
--   cd laravel-app
--   php artisan serve
+#### 4: Start the Apache Server
 
--   Now, you can visit http://localhost:8000/ in your browser.
+-  cd laravel-app
+-  php artisan serve
+-  Now, you can visit http://localhost:8000/ in your browser.
 
-#### Remove all container and image
+### Remove all container and image
 - Remove all container
 - docker container rm -f $( docker container ls -aq )
 - Remove all image
 - docker image rm -f $(docker image ls -q)
 
+### Start new project 
+- copy and past into root dir just few file
+ - docker-compose.yml
+ - Dockerfile
+ - pushToHubDiffirentSourcheCodeAndRun.sh (optional)
+ - script.sh
+ - nginx.conf
+ - run: chmod +x script.sh && ./script.sh 
+
 
 ## geting error for alpine like // exec /start.sh: no such file or directory
 ## bash sh file can not run with alpine
 
-#### Docs
+### Docs
 
 - [dockerize-your-php-laravel-app-apache](https://medium.com/@aprilrieger/effortlessly-dockerize-your-php-laravel-app-a-step-by-step-guide-c1a6ffcc2b74)
 
 - [dockerize-your-php-laravel-app-nginx](https://medium.com/@manuedavakandam/mastering-laravel-containerization-with-php-and-nginx-a-docker-a-docker-journey-d86ac9eed357)
 
-
+##### Others
 
 - udo docker build -t my-laravel-app .
 - docker run -d -p 8000:9000 --name my-laravel-container -e DB_DATABASE=testdb my-laravel-app
