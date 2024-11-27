@@ -27,6 +27,7 @@
 
 -   cd laravel-app
 -   composer install
+-   cp .env.example .env
 -   php artisan key:generate
 -   php artisan serve
 -   Now, you can visit http://localhost:8000/ in your browser.
