@@ -11,10 +11,10 @@ WORKDIR /var/www/html
 COPY . /var/www/html
 
 # Set permissions
-RUN chown -R root:root /var/www/html/storage /var/www/html/bootstrap/cache \
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache \
     && chmod -R 775 /var/www/html/storage
 
-RUN chown -R root:root /var/www/html
+RUN chown -R www-data:www-data /var/www/html
 RUN chmod -R 777 /var/www/html/storage
 
 # Install Composer dependencies
